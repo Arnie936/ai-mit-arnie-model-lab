@@ -58,6 +58,21 @@ Weitere Videomodelle: Kling 3.0 Turbo, MiniMax H3 Preview, Grok Imagine Video 1.
 
 Sunburst hat einen dokumentierten Endpunkt unter `marketing-studio/image/sunburst`. Seine Schätzantwort enthält jedoch nur eine Token-Tarifbeschreibung und keine numerische accountbezogene USD-Schätzung. Seedance 2.0 und Wan 3.0 lieferten ebenfalls nur Tarifbeschreibungen und sind nicht enthalten. Seedance 2.5 ist mit der unten beschriebenen Tarifberechnung angebunden. Nano Banana 2, Seedream 5.0 Pro, FLUX.3 Video und Flare werden ebenfalls nicht als angebundene Modelle angeboten. Es werden keine Modell-IDs erfunden oder stillschweigend umgeleitet.
 
+## Ausblick auf V2: Jev wählt das passende Modell
+
+**Geplant, noch nicht implementiert.** In den nächsten Wochen sind Benchmarks mit den Bild- und Videomodellen vorgesehen. Sie sollen zeigen, welches Modell für welche Aufgaben geeignet ist und welche Qualität es zu welchen Kosten liefert. Daraus entstehen nachvollziehbare Auswahlregeln. Erst wenn diese Regeln belastbar sind, wird Jev als Klassifizierungsmodell eingebunden.
+
+In V2 soll der Jev-Klassifizierer ganz unten in der App das bisherige **„Freie Testfeld“ ersetzen**. Dort gibst du deinen Prompt ein. Jev erkennt die Anforderungen der Aufgabe; die App wählt anhand der Benchmark-Regeln und aktuellen Kostenschätzungen das günstigste verfügbare Modell, das die Aufgabe mit ausreichender Qualität erledigen kann, und leitet den Auftrag dorthin weiter.
+
+Der geplante Ablauf:
+
+1. Prompt und gewünschte Ausgabe eingeben.
+2. Jev klassifiziert die Aufgabe und ihre Qualitätsanforderungen.
+3. Die App berücksichtigt die getesteten Modellstärken, technische Anforderungen und aktuelle Kosten.
+4. Das günstigste ausreichend geeignete Modell wird ausgewählt. Modell und Kostenschätzung sind vor dem kostenpflichtigen Start sichtbar.
+
+Das Ziel ist eine verlässliche Auswahl nach Preis und Qualität. Ein niedriger Preis allein genügt nicht; die Eignung muss durch die Benchmarks und daraus abgeleiteten Regeln gestützt sein. Die bestehenden Modellvergleiche liefern dafür die Grundlage und bleiben auch in V2 verfügbar. Ein Veröffentlichungstermin steht noch nicht fest.
+
 ## Bedienung
 
 1. Bilder oder Videos wählen. Jeder Tab behält seine eigenen Einstellungen. Der Prompt und die hochgeladenen Referenzen bleiben gemeinsam.
