@@ -73,6 +73,27 @@ Der geplante Ablauf:
 
 Das Ziel ist eine verlässliche Auswahl nach Preis und Qualität. Ein niedriger Preis allein genügt nicht; die Eignung muss durch die Benchmarks und daraus abgeleiteten Regeln gestützt sein. Die bestehenden Modellvergleiche liefern dafür die Grundlage und bleiben auch in V2 verfügbar. Ein Veröffentlichungstermin steht noch nicht fest.
 
+## Weitere Idee: lokale KI-Videos mit ComfyUI
+
+**Idee für eine spätere Erweiterung, noch nicht implementiert und ohne festen Versionstermin.** Zusätzlich zu den bestehenden Bereichen sind zwei weitere Tabs für lokale KI-Videogenerierung über ComfyUI angedacht. Die genaue Aufteilung und die Namen sind noch offen. Eine mögliche Aufteilung wäre Text-zu-Video sowie Bild-/Referenz-zu-Video.
+
+Als Ausgangspunkt existieren bereits lokale MiniMax-H3-Workflows für Text-zu-Video, Bild-zu-Video und Referenz-zu-Video, einschließlich einer Variante mit Audio-/Videoreferenzen. Die Workflow-Dateien und zugehörige Modellgewichte wurden in der vorhandenen Installation gesichtet. Das bestätigt eine Grundlage für die spätere Anbindung, aber noch keine fertige Integration in diese App oder Funktionsfähigkeit auf anderen Rechnern. Es wurden dafür keine neuen Generierungstests ausgeführt.
+
+Die Erweiterung soll folgende Anwendungsfälle berücksichtigen:
+
+- **Lokale Erstellung und Vergleich:** Prompts und Referenzen an ausgewählte, geprüfte ComfyUI-Workflows übergeben; Fortschritt, Laufzeit, Ergebnisse, Verlauf und Downloads in der App anzeigen.
+- **Passende Hardware und Workflows:** ComfyUI-Verbindung, benötigte Modelle und Custom Nodes prüfen. Fehlende Voraussetzungen sichtbar machen. Auflösung, Videolänge, Quantisierung, RAM-/VRAM-Bedarf und Warteschlange bei der Auswahl berücksichtigen.
+- **Vergleichbare Benchmarks:** Neben dem Modell auch Workflow-Version, Modellvariante, Einstellungen und verwendete Hardware festhalten. Lokale Laufzeiten sind nicht ohne Weiteres auf andere Rechner übertragbar.
+- **Ehrliche Kostenanzeige:** Bei vollständig lokaler Generierung fallen keine Generierungsgebühren eines API-Anbieters an. Strom-, Hardware- und Zeitaufwand bleiben dennoch relevant; unbekannte Kosten sollen als unbekannt erscheinen und nicht pauschal als kostenlos gelten.
+
+Für die Umsetzung ist ein eigener ComfyUI-Adapter im lokalen Backend vorgesehen, der geprüfte Workflows über die lokale ComfyUI-Schnittstelle ansteuert. Die vorhandene ComfyUI-Installation soll weiterverwendet werden. Modellgewichte, private Eingaben und Ergebnisse gehören nicht in dieses Repository; erforderliche Modelle, Custom Nodes und deren jeweilige Lizenzen müssen später je Workflow dokumentiert werden.
+
+### Zusammenspiel mit dem geplanten Jev-Routing
+
+Sobald belastbare Benchmarks und Auswahlregeln auch für lokale Workflows vorliegen, soll Jev diese als weitere Kandidaten berücksichtigen können. Das Ziel bleibt das günstigste ausreichend geeignete Modell; zusätzlich zählen lokale Verfügbarkeit, Hardwaregrenzen und akzeptable Wartezeit. Ein lokaler Workflow soll nur dann empfohlen werden, wenn die erforderliche Ausstattung und die Qualitätsanforderungen zusammenpassen.
+
+Die Auswahl zwischen lokalem Betrieb und API-Anbietern soll ausdrücklich steuerbar sein. Ein lokaler Auftrag darf nicht unbemerkt an einen Cloud-Anbieter weitergeleitet werden. Auch die Jev-Klassifizierung über TypeSafe ist ein externer API-Aufruf: Für einen vollständig lokalen Ablauf müsste dieses Routing deaktiviert oder durch lokale Regeln beziehungsweise einen separat geprüften lokalen Klassifizierer ersetzt werden.
+
 ## Bedienung
 
 1. Bilder oder Videos wählen. Jeder Tab behält seine eigenen Einstellungen. Der Prompt und die hochgeladenen Referenzen bleiben gemeinsam.
