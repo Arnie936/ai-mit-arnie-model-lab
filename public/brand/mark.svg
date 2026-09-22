@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="AI mit Arnie">
+  <title>AI mit Arnie — Bildmarke</title>
+  <rect width="64" height="64" rx="10" fill="#0B0E11"/>
+  <text x="32" y="42" text-anchor="middle"
+        font-family="'Space Grotesk','Arial Black',Helvetica,sans-serif"
+        font-weight="700" font-size="38" fill="#F3F4EF">A</text>
+  <rect x="16" y="48" width="32" height="3" fill="#B7FF3C"/>
+</svg>

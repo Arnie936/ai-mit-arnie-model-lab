@@ -1,0 +1,1 @@
+{"name":"arnie-model-lab","version":"1.0.0","private":true,"type":"module","description":"Lokales Higgsfield-Vergleichslabor","engines":{"node":">=24"},"scripts":{"start":"node server.mjs","test":"node --test test/*.test.mjs","check":"node --check server.mjs && node --check public/app.js"},"license":"MIT"}

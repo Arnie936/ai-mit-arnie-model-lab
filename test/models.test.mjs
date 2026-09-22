@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {models,selections,prepare,defaults,modelDefaults} from '../src/models.mjs';
+import {dollars} from '../src/provider.mjs';
+import {zip} from '../src/zip.mjs';
+const model=id=>models.find(m=>m.id===id);
+const s={prompt:'A green ceramic cup',kind:'video',aspectRatio:'16:9',resolution:'720p',duration:5,audio:'off'};
+test('Only confirmed API models are selectable, with six compatible cards per tab',()=>{assert.equal(selections.video.length,11);assert.equal(selections.image.length,6);for(const kind of ['video','image']){const fixed=models.filter(m=>m.fixed&&m.kind===kind);assert.equal(fixed.length,6);for(const m of fixed)assert.deepEqual(prepare(m,{...s,...defaults[kind],resolution:m.comparisonResolution||defaults[kind].resolution}).errors,[]);}});
+test('Every selectable model has usable explicit defaults and a real endpoint',()=>{for(const m of models){assert.ok(m.enabled&&m.path&&m.source.includes(m.path));assert.deepEqual(prepare(m,{...s,...modelDefaults(m)}).errors,[]);}});
+test('Reference comparisons preserve identical images and settings',()=>{const refs=['https://cdn.example/ref1.png'];for(const id of ['wanprime','ltxfast','ltxpro']){const result=prepare(model(id),{...s,duration:6},refs);assert.equal(result.input.image_url,refs[0]);assert.equal(result.input.prompt,s.prompt);assert.equal(result.input.generate_audio,false);assert.equal(result.input.resolution,'720p');assert.ok(result.path.includes('image-to-video'));}});
+test('No silent resolution/audio fallback and no unsupported references',()=>{assert.ok(prepare(model('minimaxh3'),s).errors.length>=2);assert.ok(prepare(model('kling30'),s).errors.length);assert.ok(prepare(model('zimage'),{...s,resolution:'1k'},['ref']).errors.length);});
+test('Kling audio mapping and explicit model default resolution',()=>{const r=prepare(model('kling30'),{...s,resolution:'model'});assert.deepEqual(r.errors,[]);assert.equal(r.input.sound,'off');assert.ok(!('resolution' in r.input));});
+test('One output per image job; optional prompt rewriting disabled',()=>{const r=prepare(model('soul2'),s);assert.equal(r.input.batch_size,1);assert.equal(r.input.enhance_prompt,false);});
+test('Duration and prompt length reject incompatible requests',()=>{assert.ok(prepare(model('ltxfast'),s).errors.length);assert.ok(prepare(model('zimage'),{...s,resolution:'1k',prompt:'x'.repeat(801)}).errors.length);});
+test('Missing billing remains missing, not zero',()=>{for(const v of [null,undefined,'',' ',[],{},true,'unknown',-1])assert.equal(dollars(v),null);assert.equal(dollars('0.004'),.004);assert.equal(dollars(0),0);});
+test('ZIP emits valid local header and central-directory metadata',()=>{const b=zip([{name:'lauf.json',data:'{"actualUsd":null}'}]);assert.equal(b.readUInt32LE(0),0x04034b50);assert.equal(b.readUInt32LE(b.length-22),0x06054b50);assert.equal(b.readUInt16LE(b.length-12),1);});

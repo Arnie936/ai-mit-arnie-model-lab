@@ -1,0 +1,18 @@
+.env
+.env.*
+!.env.example
+data/
+node_modules/
+.playwright-mcp/
+*.log
+test-results/
+
+backups/
+
+# Private development records and local planning documents
+/docs/
+/SPEC.md
+/modellcheck.md
+/public/brand/BRAND.md
+/public/brand/brand-props.json
+/public/brand/brand-helmet.html
