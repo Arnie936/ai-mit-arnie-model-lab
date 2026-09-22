@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0E11">
+  <meta name="description" content="Model Lab: KI-Modelle vergleichen, Auswahlregeln entwickeln und künftig mit Jev das günstigste geeignete Modell wählen. Lokale ComfyUI-Workflows als nächste Idee.">
+  <title>Die Idee · Model Lab · AI mit Arnie</title>
+  <link rel="icon" href="brand/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="konzept.css">
+</head>
+<body>
+  <header class="masthead">
+    <img src="brand/wordmark.svg" width="186" height="28" alt="AI mit Arnie">
+    <span class="mono mast-label">MODEL LAB / DAS KONZEPT</span>
+    <a href="https://github.com/Arnie936/ai-mit-arnie-model-lab" target="_blank" rel="noopener noreferrer">Open Source <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <p class="eyebrow">VOM VERGLEICH ZUR AUSWAHL</p>
+        <h1 id="title">Modelle testen.<br> <span>Geld sparen.</span></h1>
+        <p class="goal">Das günstigste Modell finden,<br>das den Job <strong>gut genug</strong> macht.</p>
+      </div>
+      <div class="visuals">
+        <div class="diptych">
+          <figure><img src="konzept-assets/vergleichen.png" width="1536" height="1024" alt="KI-Illustration: Dasselbe Produkt in verschiedenen Bildvarianten zum Vergleichen."><figcaption><span>HEUTE</span> Gemeinsam vergleichen.</figcaption></figure>
+          <figure><img src="konzept-assets/lokal.png" width="1536" height="1024" alt="KI-Illustration: Ein eigener Rechner mit einer Videoszene und abstrakten Workflow-Knoten."><figcaption><span>SPÄTER</span> Auf deinem Rechner.</figcaption></figure>
+        </div>
+        <p class="image-note">KI-Illustrationen · keine Benchmark-Ergebnisse</p>
+      </div>
+    </section>
+
+    <ol class="roadmap" aria-label="Heute, nächste Schritte und Zukunftsideen">
+      <li class="phase current">
+        <div class="phase-top"><span class="number">01</span><span class="status">HEUTE</span></div>
+        <h2>Vergleichen</h2>
+        <p>6 Bild- und 6 Videomodelle.<br> Ein Prompt, Ergebnisse nebeneinander.</p>
+      </li>
+      <li class="phase">
+        <div class="phase-top"><span class="number">02</span><span class="status">ALS NÄCHSTES</span></div>
+        <h2>Benchmarken</h2>
+        <p>Qualität, Kosten und Laufzeit messen.<br> Daraus klare Auswahlregeln ableiten.</p>
+      </li>
+      <li class="phase">
+        <div class="phase-top"><span class="number">03</span><span class="status">V2 / GEPLANT</span></div>
+        <h2>Mit Jev routen</h2>
+        <p>Prompt rein. Passendes Modell wählen.<br> Ersetzt das „Freie Testfeld“.</p>
+      </li>
+      <li class="phase">
+        <div class="phase-top"><span class="number">04</span><span class="status">SPÄTER / IDEE</span></div>
+        <h2>Lokal erweitern</h2>
+        <p>Zwei weitere Tabs für KI-Videos.<br> Mit eigenen ComfyUI-Workflows.</p>
+      </li>
+    </ol>
+
+    <section class="routing" aria-labelledby="routing-title">
+      <div class="routing-heading">
+        <div><p class="eyebrow">DAS ZIELBILD / GEPLANT</p><h2 id="routing-title">Qualität entscheidet. Der Preis auch.</h2></div>
+        <a class="diagram-download" href="konzept-assets/routing.excalidraw" download="Model-Lab-Routing.excalidraw">Excalidraw herunterladen <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="diagram">
+        <div class="diagram-scroll" tabindex="0" role="region" aria-label="Ablaufdiagramm. Auf kleinen Bildschirmen horizontal scrollbar.">
+          <img src="konzept-assets/routing.svg" width="1084" height="340" alt="Geplantes Routing: Benchmarks liefern Auswahlregeln. Dein Prompt geht an Jev, das die Aufgabe klassifiziert. Die App wählt mit den Regeln und Kosten das günstigste ausreichend geeignete Modell. Mögliche Wege sind API-Modelle über Higgsfield und später lokale Modelle über ComfyUI.">
+        </div>
+        <figcaption class="mobile-hint">Diagramm seitlich wischen · <a href="konzept-assets/routing.svg" target="_blank" rel="noopener">Groß öffnen ↗</a></figcaption>
+      </figure>
+      <p class="footnote">Lokales Routing erst mit passenden Benchmarks und verfügbarer Hardware. Auch Strom und Laufzeit zählen.</p>
+    </section>
+  </main>
+  <footer><span class="mono">ERST TESTEN. DANN REGELN. DANN ROUTEN.</span><a href="https://www.skool.com/ai-mit-arnie-ki-revolution" target="_blank" rel="noopener noreferrer">Zur Community <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

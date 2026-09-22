@@ -43,6 +43,12 @@ npm start
 
 Neue Installationen starten mit leerem Verlauf. Eigene Ergebnisse liegen in `data/media/`, Referenzen in `data/uploads/` und der Verlauf in `data/state.json`. Vor einem Umzug oder einer Neuinstallation den gesamten Ordner `data/` lokal sichern. Backups mit `.env` enthalten deinen Schlüssel und dürfen nicht veröffentlicht werden.
 
+## Konzept und geplante Erweiterungen
+
+Die [Konzeptseite](public/konzept.html) zeigt den Weg vom Modellvergleich über Benchmarks zum geplanten Jev-Routing und zu lokalen ComfyUI-Workflows. Nach dem Start öffnen: http://127.0.0.1:3210/konzept.html.
+
+Das [Excalidraw-Diagramm](public/konzept-assets/routing.excalidraw) ist bearbeitbar; [SVG](public/konzept-assets/routing.svg) und [PNG](public/konzept-assets/routing.png) liegen ebenfalls bei. Die beiden KI-Illustrationen zeigen keine echten Benchmark-Ergebnisse. Ihre [Prompts und Herkunft](public/konzept-assets/Bildnachweis.md) sind dokumentiert. Jev-Routing und lokale Generierung sind Zukunftspläne, noch keine verfügbaren Funktionen.
+
 ## Aktuelle Modellauswahl
 
 Die Adapter wurden am 22.09.2026 anhand der [offiziellen API-Preisliste](https://open.higgsfield.ai/pricing?tab=all) und Modell-Dokumentation geprüft. Es gibt sechs Hauptkarten pro Tab und insgesamt 17 auswählbare Adapter. Verfügbarkeit und Preise hängen vom eigenen Account und vom Anbieter ab. Seedance 2.5 liefert statt einer numerischen Konto-Schätzung einen Token-Tarif; die App berechnet daraus eine ausdrücklich gekennzeichnete Schätzung für 720p.
